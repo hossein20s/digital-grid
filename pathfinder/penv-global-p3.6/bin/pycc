@@ -1,3 +1,0 @@
-#!/data/git/pathfinder/penv-global-p3.6/bin/python3.6
-from numba.pycc import main
-main()
