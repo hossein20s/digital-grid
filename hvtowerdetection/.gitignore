@@ -1,0 +1,17 @@
+*/.idea/workspace.xml
+.vscode/
+.idea/
+data/
+__pycache__/
+train/__pycache__/
+train/.ipynb_checkpoints/
+train/data/
+train/models/
+train/archive/
+train/results/
+test/data/
+test/results/
+test/__pycache__/
+test/tower/__pycache__/
+test/towers_combined.csv
+models/
