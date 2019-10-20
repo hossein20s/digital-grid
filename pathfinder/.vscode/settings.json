@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/anaconda3/envs/fastai-cpu/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}

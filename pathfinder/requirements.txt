@@ -1,0 +1,11 @@
+matplotlib
+numba
+numpy
+ipdb
+shapely
+scikit-image
+simplekml
+# gdal==2.2.3
+scikit-learn
+geopy
+sympy
