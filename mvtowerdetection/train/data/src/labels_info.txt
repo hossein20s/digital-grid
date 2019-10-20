@@ -1,0 +1,67 @@
+                          Bird ( 0): animal--bird                             has instances: True
+                 Ground Animal ( 1): animal--ground-animal                    has instances: True
+                          Curb ( 2): construction--barrier--curb              has instances: False
+                         Fence ( 3): construction--barrier--fence             has instances: False
+                    Guard Rail ( 4): construction--barrier--guard-rail        has instances: False
+                       Barrier ( 5): construction--barrier--other-barrier     has instances: False
+                          Wall ( 6): construction--barrier--wall              has instances: False
+                     Bike Lane ( 7): construction--flat--bike-lane            has instances: False
+             Crosswalk - Plain ( 8): construction--flat--crosswalk-plain      has instances: True
+                      Curb Cut ( 9): construction--flat--curb-cut             has instances: False
+                       Parking (10): construction--flat--parking              has instances: False
+               Pedestrian Area (11): construction--flat--pedestrian-area      has instances: False
+                    Rail Track (12): construction--flat--rail-track           has instances: False
+                          Road (13): construction--flat--road                 has instances: False
+                  Service Lane (14): construction--flat--service-lane         has instances: False
+                      Sidewalk (15): construction--flat--sidewalk             has instances: False
+                        Bridge (16): construction--structure--bridge          has instances: False
+                      Building (17): construction--structure--building        has instances: False
+                        Tunnel (18): construction--structure--tunnel          has instances: False
+                        Person (19): human--person                            has instances: True
+                     Bicyclist (20): human--rider--bicyclist                  has instances: True
+                  Motorcyclist (21): human--rider--motorcyclist               has instances: True
+                   Other Rider (22): human--rider--other-rider                has instances: True
+      Lane Marking - Crosswalk (23): marking--crosswalk-zebra                 has instances: True
+        Lane Marking - General (24): marking--general                         has instances: False
+                      Mountain (25): nature--mountain                         has instances: False
+                          Sand (26): nature--sand                             has instances: False
+                           Sky (27): nature--sky                              has instances: False
+                          Snow (28): nature--snow                             has instances: False
+                       Terrain (29): nature--terrain                          has instances: False
+                    Vegetation (30): nature--vegetation                       has instances: False
+                         Water (31): nature--water                            has instances: False
+                        Banner (32): object--banner                           has instances: True
+                         Bench (33): object--bench                            has instances: True
+                     Bike Rack (34): object--bike-rack                        has instances: True
+                     Billboard (35): object--billboard                        has instances: True
+                   Catch Basin (36): object--catch-basin                      has instances: True
+                   CCTV Camera (37): object--cctv-camera                      has instances: True
+                  Fire Hydrant (38): object--fire-hydrant                     has instances: True
+                  Junction Box (39): object--junction-box                     has instances: True
+                       Mailbox (40): object--mailbox                          has instances: True
+                       Manhole (41): object--manhole                          has instances: True
+                   Phone Booth (42): object--phone-booth                      has instances: True
+                       Pothole (43): object--pothole                          has instances: False
+                  Street Light (44): object--street-light                     has instances: True
+                          Pole (45): object--support--pole                    has instances: True
+            Traffic Sign Frame (46): object--support--traffic-sign-frame      has instances: True
+                  Utility Pole (47): object--support--utility-pole            has instances: True
+                 Traffic Light (48): object--traffic-light                    has instances: True
+           Traffic Sign (Back) (49): object--traffic-sign--back               has instances: True
+          Traffic Sign (Front) (50): object--traffic-sign--front              has instances: True
+                     Trash Can (51): object--trash-can                        has instances: True
+                       Bicycle (52): object--vehicle--bicycle                 has instances: True
+                          Boat (53): object--vehicle--boat                    has instances: True
+                           Bus (54): object--vehicle--bus                     has instances: True
+                           Car (55): object--vehicle--car                     has instances: True
+                       Caravan (56): object--vehicle--caravan                 has instances: True
+                    Motorcycle (57): object--vehicle--motorcycle              has instances: True
+                      On Rails (58): object--vehicle--on-rails                has instances: False
+                 Other Vehicle (59): object--vehicle--other-vehicle           has instances: True
+                       Trailer (60): object--vehicle--trailer                 has instances: True
+                         Truck (61): object--vehicle--truck                   has instances: True
+                  Wheeled Slow (62): object--vehicle--wheeled-slow            has instances: True
+                     Car Mount (63): void--car-mount                          has instances: False
+                   Ego Vehicle (64): void--ego-vehicle                        has instances: False
+                     Unlabeled (65): void--unlabeled                          has instances: False
+

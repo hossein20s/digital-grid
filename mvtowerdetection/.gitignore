@@ -1,0 +1,15 @@
+.vscode/
+.idea/
+__pycache__/
+models/
+train/__pycache__/
+train/.ipynb_checkpoints/
+train/data/src/images
+train/data/src/labels
+train/data/src/archive
+train/data/dataset
+train/models/
+test/__pycache__/
+test/data/
+test/results/
+test/get_object_attributes_OLD.py
