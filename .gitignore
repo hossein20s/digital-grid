@@ -11,6 +11,7 @@ hvtowerdetection/train/models/
 hvtowerdetection/train/archive/
 hvtowerdetection/train/results/
 hvtowerdetection/test/data/
+hvtowerdetection/test/results_hvtowers.zip
 hvtowerdetection/test/results/
 hvtowerdetection/test/__pycache__/
 hvtowerdetection/test/tower/__pycache__/
