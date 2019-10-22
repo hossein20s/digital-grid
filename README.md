@@ -36,11 +36,11 @@ Now you have the training data in place. RGB data will be used for training whil
 
 **Set the path variables**
 
-- LABELS_JSON_PATH="<path to label file for one of the regions>"
+- LABELS_JSON_PATH="*** path to label file for one of the regions ***"
 
-- SATELLITE_IMAGE_PATH="<path to satellite RGB tif file for the region>"
+- SATELLITE_IMAGE_PATH="*** path to satellite RGB tif file for the region ***"
 
-- SATELLITE_IMAGE_MS_PATH="<path to satellite MS tif file for the region>"
+- SATELLITE_IMAGE_MS_PATH="*** path to satellite MS tif file for the region ***"
 
 **Set the flag variables**
 
