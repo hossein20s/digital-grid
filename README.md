@@ -92,7 +92,7 @@ The model files will be saved in the location - **models/tower/<model folder>** 
 
 To test on the test data prepared:
 
-- MODELPATH=”<path to model file>”
+- MODELPATH=***path to model file***
 - TEST_IMAGE_PATH="train/data/dataset/test/tiff_images"
 - PNG_IMAGES_PATH="test/data/generated/png_images"
 - TIFF_IMAGES_PATH="test/data/generated/tiff_images"
@@ -187,7 +187,7 @@ Extract the data in the location - **test/data/src/FloridaOSCimages**
 
 - DENSE_DEPTH_MODEL_PATH="models/densedepth/<dense depth model filename>"
 
-- OBJECT_DETECTION_MODEL_PATH="<path to trained model file>"
+- OBJECT_DETECTION_MODEL_PATH= ***path to trained model file***
 
 - PREPARE_MASTER_DATA_FLAG=FALSE
 
