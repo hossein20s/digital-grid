@@ -3,7 +3,7 @@ import os
 from model import *
 from data import test_generator
 from utils import create_directory, get_subfiles
-from show_annotated_images import show_images_and_masks, save_result
+from show_annotated_images import save_images_and_masks, save_result
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -23,8 +23,8 @@ def get_predictions():
 
     test_batch_size = len(test_filenames)
 
-    print('\nStarting testing ...')
-    print('Using model - {}'.format(weight_file_path))
+    print('\nStarting testing ...\n')
+    print('Using model - {}\n'.format(weight_file_path))
     results = model.predict_generator(testgen, test_batch_size, verbose=1)
     print('DONE !')
 
@@ -40,5 +40,5 @@ def get_predictions():
         suffix = '_predict'
 
         print('\nSaving test results - images and masks combined')
-        show_images_and_masks(imagesdir, masksdir, suffix, save=True)
+        save_images_and_masks(imagesdir, masksdir, suffix, save=True)
         print('DONE !')

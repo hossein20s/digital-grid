@@ -1,3 +1,4 @@
+import os
 from functools import partial
 import numpy as np
 import fiona
@@ -84,7 +85,6 @@ class NdviAnalysis:
             row, col = self.convert_latlong_as_pixel(ds_ms, df_hv['centroid'].iloc[j])
             xoff = row
             yoff = col
-            print('\nrow col: {} {}'.format(row, col))
             try:
                 avg_ndvi.append(self.return_avg_ndvi(ds_ms, xoff, yoff))
             except:
@@ -96,5 +96,5 @@ class NdviAnalysis:
 
         # save as shapefile
         df_hv = df_hv[['id', 'avg_ndvi', 'geometry']]
-        df_hv.to_file(os.path.join(save_path, 'hvtower_ndvi_encroachment.shp'), driver='ESRI Shapefile')
-        df_hv.to_file(os.path.join(save_path, 'hvtower_ndvi_encroachment.kml'), driver='KML')
+        df_hv.to_file(os.path.join(save_path, 'vegetation_encroachment.shp'), driver='ESRI Shapefile')
+        df_hv.to_file(os.path.join(save_path, 'vegetation_encroachment.kml'), driver='KML')

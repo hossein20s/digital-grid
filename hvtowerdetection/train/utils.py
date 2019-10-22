@@ -20,10 +20,13 @@ def get_subfiles(dir, prefix=[]):
     filenames = list()
     for root, dirs, files in os.walk(dir):
         for file in files:
-            for p in prefix:
-                if file.startswith(p):
-                    filenames.append(file)
-                    break
+            if prefix:
+                for p in prefix:
+                    if file.startswith(p):
+                        filenames.append(file)
+                        break
+            else:
+                filenames.append(file)
     return filenames
 
 
@@ -43,7 +46,7 @@ def convert_to_global_annotations(labels_json_path):
                     region['shape_attributes']['x'] += dx
                     region['shape_attributes']['y'] += dy
 
-    with open(os.getenv('GLOBAL_LABELS_JSON_PATH'), 'w') as f:
+    with open(os.path.join(os.getenv('TEMP_ANNOTATIONS_PATH'), 'global_annotations.json'), 'w') as f:
         json.dump(annot_data, f)
 
 
@@ -102,7 +105,7 @@ def create_directory(path, format=True):
 # create vgg image annotator json format for master images data
 def create_modified_annotations_json(global_annotations_obj):
 
-    with open(os.getenv('GLOBAL_LABELS_JSON_PATH'), 'r') as f:
+    with open(os.path.join(os.getenv('TEMP_ANNOTATIONS_PATH'), 'global_annotations.json'), 'r') as f:
         labels_json = json.load(f)
         labels_json['_via_img_metadata'] = {}
 
@@ -138,7 +141,7 @@ def create_modified_annotations_json(global_annotations_obj):
 
         f.close()
 
-    with open(os.getenv('IMPROVED_LABELS_JSON'), 'w') as f:
+    with open(os.path.join(os.getenv('TEMP_ANNOTATIONS_PATH'), 'global_annotations_modified_to_local.json'), 'w') as f:
         json.dump(labels_json, f)
 
 
