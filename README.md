@@ -187,7 +187,7 @@ Extract the data in the location - **test/data/src/FloridaOSCimages**
 
 - DENSE_DEPTH_MODEL_PATH="models/densedepth/<dense depth model filename>"
 
-- OBJECT_DETECTION_MODEL_PATH=***path to trained model file***
+- OBJECT_DETECTION_MODEL_PATH= ***path to trained model file***
 
 - PREPARE_MASTER_DATA_FLAG=FALSE
 
