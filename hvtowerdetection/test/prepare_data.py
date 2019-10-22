@@ -36,6 +36,8 @@ def prepare_data():
         src_file = gdal.Open(os.path.join(test_image_path, test_file), gdal.GA_ReadOnly)
         width = src_file.RasterXSize
         height = src_file.RasterYSize
+
+        counter = 1
         for i in range(0, width, tilesize):
             for j in range(0, height, tilesize):
                 if (i + tilesize) < width and (j + tilesize) < height:
@@ -46,25 +48,17 @@ def prepare_data():
                     sub_region = src_file.ReadAsArray(i, j, width-i-1, tilesize)
                 else:
                     sub_region = src_file.ReadAsArray(i, j, width-i-1, height-i-1)
-                # null_x_offset, null_y_offset = get_null_area_bounds(sub_region)
-                # if null_x_offset is not None:
-                #     if null_y_offset is not tilesize-1:
-                #         j += null_y_offset
-                #     continue
 
                 filename = test_file.split('.')[0] + '_' + str(i) + '_' + str(j)
 
                 # crop satellite image when labels are found and every time count_image_with_annot reaches
                 # count_image_with_annot_max
-                print('\nFilename: {}'.format(filename))
+                print('\ncounter: {}'.format(counter))
+                print('Filename: {}'.format(filename))
                 gdaltranString = "gdal_translate -of GTIFF -srcwin " + str(i) + ", " + str(j) + ", " + str(tilesize) \
                                  + ", " + str(tilesize) + " " + os.path.join(test_image_path, test_file) + " " + \
                                  cropped_tiff_images_path + "/" + filename + ".tif"
                 os.system(gdaltranString)
-
-                # ds = gdal.Open(file)
-                # band = ds.GetRasterBand(1)
-                # arr = band.ReadAsArray()
 
         # convert cropped tiff images to png and save to master directory
         print('\nConverting tiff to png ...')

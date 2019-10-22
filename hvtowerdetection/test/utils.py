@@ -14,9 +14,20 @@ def get_current_date_time():
 
 
 # get list of immediate files in a directory
-def get_subfiles(dir):
+def get_subfiles(dir, prefix=[]):
     "Get a list of immediate subfiles"
-    return next(os.walk(dir))[2]
+    # return next(os.walk(dir))[2]
+    filenames = list()
+    for root, dirs, files in os.walk(dir):
+        for file in files:
+            if prefix:
+                for p in prefix:
+                    if file.startswith(p):
+                        filenames.append(file)
+                        break
+            else:
+                filenames.append(file)
+    return filenames
 
 
 # create directory if does not exist, else delete all its contents

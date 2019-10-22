@@ -10,7 +10,7 @@ load_dotenv()
 
 # global constants
 tilesize = int(os.getenv('TILESIZE'))
-labels_json_path = os.getenv('IMPROVED_LABELS_JSON')
+temp_annotations_path = os.getenv('TEMP_ANNOTATIONS_PATH')
 
 
 # create mask for training image
@@ -27,6 +27,7 @@ def create_mask(annotations_obj):
 
 # create and save all masks for training images
 def save_masks(masks_path):
+    labels_json_path = os.path.join(temp_annotations_path, "global_annotations_modified_to_local.json")
     with open(labels_json_path, 'r') as f:
         labels_json = json.load(f)
 

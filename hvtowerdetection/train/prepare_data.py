@@ -23,7 +23,7 @@ step = int(os.getenv('STEP'))
 
 dataset_path = os.getenv('DATASETPATH')
 labels_json_path = os.getenv('LABELS_JSON_PATH')
-global_labels_json_path = os.getenv('GLOBAL_LABELS_JSON_PATH')
+temp_annotations_path = os.getenv('TEMP_ANNOTATIONS_PATH')
 cropped_tiff_images_path = os.getenv('CROPPED_TIFF_IMAGES_PATH')
 cropped_png_images_path = os.getenv('CROPPED_PNG_IMAGES_PATH')
 satellite_image_path = os.getenv('SATELLITE_IMAGE_PATH')
@@ -40,15 +40,14 @@ def crop_satellite_image(data):
 # prepare training data images from satellite image
 def prepare_master_data():
     # create directories
-    create_directory(os.path.join(dataset_path, 'master'), format=True)
-    create_directory(os.path.join(os.path.join(dataset_path, 'master'), 'images'), format=True)
-    create_directory(os.path.join(os.path.join(dataset_path, 'master'), 'masks'), format=True)
-    create_directory(cropped_tiff_images_path, format=True)
-    create_directory('data/annotations/temp')
+    create_directory(os.path.join(dataset_path, 'master'), format=False)
+    create_directory(os.path.join(os.path.join(dataset_path, 'master'), 'images'), format=False)
+    create_directory(os.path.join(os.path.join(dataset_path, 'master'), 'masks'), format=False)
+    create_directory(cropped_tiff_images_path, format=False)
+    create_directory(temp_annotations_path)
 
     # convert annotations json file with local coordinates to global coordinates
     convert_to_global_annotations(labels_json_path)
-    # convert_to_via_format_global(os.getenv('GLOBAL_LABELS_CSV_PATH'))
 
     src_file = gdal.Open(satellite_image_path, gdal.GA_ReadOnly)
     width = src_file.RasterXSize
@@ -64,7 +63,7 @@ def prepare_master_data():
         if count_samples > int(os.getenv('MAX_SAMPLES')):
             break
         for j in range(0, height, step):
-            labels_json = read_labels(global_labels_json_path)
+            labels_json = read_labels(os.path.join(temp_annotations_path, 'global_annotations.json'))
 
             x = i
             y = j
@@ -141,7 +140,7 @@ def prepare_master_data():
 # create train, validation and test datasets from master dataset
 def train_valid_test_split(master_data_path, train_path, valid_path, test_path, percent_valid=0.2, percent_test=0.2):
     # distribute files from master to train, valid and test
-    all_data_filenames = get_subfiles(os.path.join(master_data_path, 'images'), prefix=['Rio'])
+    all_data_filenames = get_subfiles(os.path.join(master_data_path, 'images'))
     valid_filenames = random.sample(all_data_filenames, int((percent_valid / 100.0) * len(all_data_filenames)))
     test_filenames = random.sample(valid_filenames, int((percent_test / 100.0) * len(valid_filenames)))
     train_filenames = [x for x in all_data_filenames if x not in valid_filenames]

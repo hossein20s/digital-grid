@@ -49,9 +49,10 @@ def get_image_dimensions(path):
 
 
 # display images and their masks
-def show_images_and_masks(imagesdir, masksdir, suffix='_mask', show=False,
+def save_images_and_masks(imagesdir, masksdir, suffix='_mask', show=False,
                           save=False):
     all_images = get_subfiles(imagesdir)
+    counter = 1
     for imagefilename in all_images:
         filename = imagefilename.split('.')[0]
         maskfilename = str(filename) + suffix + '.png'
@@ -72,8 +73,12 @@ def show_images_and_masks(imagesdir, masksdir, suffix='_mask', show=False,
             cv2.destroyAllWindows()
 
         if save:
+            print('\ncounter: {}'.format(counter))
+            print('Filepath: {}'.format(os.getenv('COMBINED_IMAGES_PATH') + '/{}'.format(str(filename) + '.png'),
+                        combined_img))
             cv2.imwrite(os.getenv('COMBINED_IMAGES_PATH') + '/{}'.format(str(filename) + '.png'),
                         combined_img)
+            counter += 1
 
 
 # get image from model predictions
