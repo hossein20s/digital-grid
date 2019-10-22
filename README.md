@@ -36,11 +36,11 @@ Now you have the training data in place. RGB data will be used for training whil
 
 **Set the path variables**
 
-- LABELS_JSON_PATH=”<path to label file for one of the regions>”
+- LABELS_JSON_PATH="<path to label file for one of the regions>"
 
 - SATELLITE_IMAGE_PATH="<path to satellite RGB tif file for the region>"
 
-- SATELLITE_IMAGE_MS_PATH=”<path to satellite MS tif file for the region>”
+- SATELLITE_IMAGE_MS_PATH="<path to satellite MS tif file for the region>"
 
 **Set the flag variables**
 
@@ -93,9 +93,9 @@ The model files will be saved in the location - **models/tower/<model folder>** 
 To test on the test data prepared:
 
 - MODELPATH=”<path to model file>”
-- TEST_IMAGE_PATH=”train/data/dataset/test/tiff_images”
-- PNG_IMAGES_PATH=”test/data/generated/png_images”
-- TIFF_IMAGES_PATH=”test/data/generated/tiff_images”
+- TEST_IMAGE_PATH="train/data/dataset/test/tiff_images"
+- PNG_IMAGES_PATH="test/data/generated/png_images"
+- TIFF_IMAGES_PATH="test/data/generated/tiff_images"
 - PREPARE_MASTER_FLAG=FALSE
 - SPLIT_DATA_FLAG=FALSE
 - TRAIN_FLAG=FALSE
@@ -104,9 +104,9 @@ To test on the test data prepared:
 
 To test on all the data prepared:
 
-- TEST_IMAGE_PATH=”train/data/satellite_data/cropped_tiff_images”
-- PNG_IMAGES_PATH=”train/data/dataset/master/images”
-- TIFF_IMAGES_PATH=”train/data/satellite_data/cropped_tiff_images”
+- TEST_IMAGE_PATH="train/data/satellite_data/cropped_tiff_images"
+- PNG_IMAGES_PATH="train/data/dataset/master/images"
+- TIFF_IMAGES_PATH="train/data/satellite_data/cropped_tiff_images"
 - PREPARE_MASTER_FLAG=FALSE
 - SPLIT_DATA_FLAG=FALSE
 - TRAIN_FLAG=FALSE
@@ -167,7 +167,7 @@ To test on the test data prepared-
 
 - TEST_IMAGES_PATH="train/data/dataset/test/images"
 - DENSE_DEPTH_MODEL_PATH="models/densedepth/<dense depth model filename>"
-- OBJECT_DETECTION_MODEL_PATH=<path to trained model file>
+- OBJECT_DETECTION_MODEL_PATH="<path to trained model file>"
 - PREPARE_MASTER_DATA_FLAG=FALSE
 - SPLIT_DATA_FLAG=FALSE
 - TRAIN_FLAG=FALSE
@@ -187,7 +187,7 @@ Extract the data in the location - **test/data/src/FloridaOSCimages**
 
 - DENSE_DEPTH_MODEL_PATH="models/densedepth/<dense depth model filename>"
 
-- OBJECT_DETECTION_MODEL_PATH=<path to trained model file>
+- OBJECT_DETECTION_MODEL_PATH="<path to trained model file>"
 
 - PREPARE_MASTER_DATA_FLAG=FALSE
 
