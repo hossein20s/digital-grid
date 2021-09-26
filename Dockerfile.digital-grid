@@ -1,0 +1,10 @@
+# docker build -f Dockerfile.digital-grid -t us.gcr.io/autogrid-pam/dev/digital-grid:v1.1.0 .
+FROM us.gcr.io/autogrid-pam/dev/jupyter-k8s-aws:v1.0 
+
+COPY requirements.txt .
+
+# RUN conda update conda && conda env create --file conda_environment.yml # takes forever instead I 
+RUN . /opt/conda/etc/profile.d/conda.sh && conda activate python3.6 && pip install -r requirements.txt 
+
+COPY . digital-grid
+
