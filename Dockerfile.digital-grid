@@ -1,0 +1,20 @@
+# docker build -f Dockerfile.digital-grid -t us.gcr.io/autogrid-pam/dev/digital-grid:v1.1.0 .
+FROM us.gcr.io/autogrid-pam/dev/jupyter-k8s-aws:v1.0 
+
+USER root
+
+RUN apt update; apt install -y libblas3 liblapack3 liblapack-dev libblas-dev gdal-bin libgdal-dev
+
+env CPLUS_INCLUDE_PATH=/usr/include/gdal
+env C_INCLUDE_PATH=/usr/include/gdal
+
+COPY requirements.txt .
+
+# RUN conda update conda && conda env create --file conda_environment.yml # takes forever instead I 
+RUN . /opt/conda/etc/profile.d/conda.sh && conda activate python3.6 && pip install -r requirements.txt 
+
+COPY . digital-grid
+
+RUN chown -R 1001:1001 .
+
+USER developer

@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digital-grid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digital-grid
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: digital-grid
+    spec:
+      nodeSelector:
+        role: app
+      containers:
+        - image: us.gcr.io/autogrid-pam/dev/digital-grid:v1.1.0
+          name: digital-grid
+          imagePullPolicy: IfNotPresent
+          resources: {}
+          ports:
+            - containerPort: 8888
+            - containerPort: 9999
+            - containerPort: 4040
+          # volumeMounts:
+          #   - mountPath: /opt/src/data
+          #     name: data
+          #     subPath: data
+          # volumeMounts:
+          #   - mountPath: /opt/src/dev
+          #     name: data
+          #     subPath: dev
+          # command: ["sh", "-c", "tail -f /dev/null"]
+      imagePullSecrets:
+      - name: us-gcr-json-key
+      restartPolicy: Always
+      # volumes:
+      #   - name: data
+      #     persistentVolumeClaim:
+      #       claimName: data
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: digital-grid
+spec:
+  ports:
+    - name: "9999"
+      port: 9999
+      targetPort: 9999
+  selector:
+    app: digital-grid
+  type: LoadBalancer
+status:
+  loadBalancer: {}
