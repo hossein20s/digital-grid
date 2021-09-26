@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 absl-py
 gdal
 h5py
@@ -5,6 +6,8 @@ scipy
 setuptools
 six
 sqlite
+=======
+>>>>>>> 64d27e367ec2c61afc96d80e9d55e9acc6d04866
 affine
 attrs
 chardet
