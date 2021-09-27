@@ -18,7 +18,7 @@ dataset_path = os.getenv('DATASETPATH')
 
 
 # main
-def main():
+def hvtowerdetection():
 	current_date_time = ''
 
 	if prepare_master_data_flag.upper() == 'TRUE':
@@ -51,4 +51,4 @@ def main():
 
 # MAIN
 if __name__ == '__main__':
-	main()
+	hvtowerdetection()
